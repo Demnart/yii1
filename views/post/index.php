@@ -8,9 +8,9 @@ use yii\widgets\ActiveForm;
 <?php $this->endBlock();?>
 
 <?php $form = ActiveForm::begin(['id'=>'testForm']) ?>
-<?= $form->field($model,'name')->label('Имя')?>
+<?= $form->field($model,'name')?>
 <?= $form->field($model,'email')->input('email')?>
-<?= $form->field($model,'text')->label('Текст')->textarea()?>
+<?= $form->field($model,'text')->textarea()?>
 <?= Html::submitButton('Отправить',['class'=>'btn btn-success'])?>
 <?php $form = ActiveForm::end() ?>
 
