@@ -27,6 +27,21 @@ extends AbstractController
     public function actionIndex()
     {
         $model = new TestForm();
+        if ($model->load(Yii::$app->request->post()))
+        {
+//            debug($model);
+            if ($model->validate())
+            {
+                Yii::$app->session->setFlash('success','Данные приняты');
+                return $this->refresh();
+            }
+            else
+                {
+                    Yii::$app->session->setFlash('Error','Ошибка');
+
+                }
+
+        }
         $this->view->title = 'Index';
         $this->view->registerMetaTag(['name'=>'keywords','content'=>'Ключевики'] );
         $this->view->registerMetaTag(['name'=>'description','content'=>'Описание страницы'] );
