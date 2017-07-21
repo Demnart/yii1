@@ -7,6 +7,7 @@
  */
 
 namespace app\controllers;
+use app\models\News;
 use app\models\TestForm;
 use Yii;
 class PostController
@@ -53,6 +54,21 @@ extends AbstractController
         $this->view->title = 'Test';
         $this->view->registerMetaTag(['name'=>'keywords','content'=>'Ключевики'] );
         $this->view->registerMetaTag(['name'=>'description','content'=>'Описание страницы'] );
-        return $this->render('test');
+
+//        $items = News::find()->all();
+//        $items = News::find()->orderBy(['id'=> SORT_DESC])->all();
+//        $items = News::find()->asArray()->all();
+//        $items = News::find()->asArray()->where(['parent'=>'1'])->all();
+//        $items = News::find()->asArray()->where(['parent'=>'1'])->all();
+//        $items = News::find()->asArray()->where(['<=','parent',2])->all();
+//        $items = News::find()->asArray()->where(['parent'=>'1'])->limit(1)->all();
+//        $items = News::find()->asArray()->where(['parent'=>'1'])->limit(1)->one();
+//        $items = News::find()->asArray()->where(['parent'=>'1'])->count();
+        $item = News::findAll(['parent'=>1]);
+
+
+
+
+        return $this->render('test',compact('item'));
     }
 }
