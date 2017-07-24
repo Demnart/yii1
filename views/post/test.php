@@ -13,12 +13,19 @@
 <?php $this->endBlock(); ?>
 
 <?php
-\app\controllers\debug($item);
-//    foreach ($items as $item)
-//    {
-//        echo $item['title'] . '<br>';
-//    }
-
+foreach ($category as $value)
+{
+   echo '<ul>';
+    echo '<li>' . $value->name .'</li>';
+    $news = $value->news;
+    foreach ($news as $value1)
+    {
+        echo '<ul>';
+            echo '<li>'. $value1->title .'</li>';
+        echo '</ul>';
+    }
+   echo '</ul>';
+}
 ?>
 
 <?php
