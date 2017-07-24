@@ -28,6 +28,10 @@ extends AbstractController
 
     public function actionIndex()
     {
+        $post = Posts::findOne(2);
+//        debug($post);
+        $post->email = '2@2mail.ru';
+        $post->save();
         $model = new Posts();
 
 //        $model->name= 'Артем';
