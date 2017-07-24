@@ -7,6 +7,7 @@
  */
 
 namespace app\controllers;
+use app\models\Category;
 use app\models\News;
 use app\models\TestForm;
 use Yii;
@@ -64,11 +65,16 @@ extends AbstractController
 //        $items = News::find()->asArray()->where(['parent'=>'1'])->limit(1)->all();
 //        $items = News::find()->asArray()->where(['parent'=>'1'])->limit(1)->one();
 //        $items = News::find()->asArray()->where(['parent'=>'1'])->count();
-        $item = News::findAll(['parent'=>1]);
+//        $item = News::findAll(['parent'=>1]);
+//        $querry = "SELECT * FROM news WHERE parent =:parent";
+//        $item = News::findBySql($querry,[':parent'=>1])->asArray()->one();
+//          $category = Category::find()->all();
+          $category = Category::find()->with('news')->all();
 
 
 
 
-        return $this->render('test',compact('item'));
+
+        return $this->render('test',compact('category'));
     }
 }
