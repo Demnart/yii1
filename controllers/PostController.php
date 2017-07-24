@@ -9,7 +9,7 @@
 namespace app\controllers;
 use app\models\Category;
 use app\models\News;
-use app\models\TestForm;
+use app\models\Posts;
 use Yii;
 class PostController
 extends AbstractController
@@ -28,11 +28,17 @@ extends AbstractController
 
     public function actionIndex()
     {
-        $model = new TestForm();
+        $model = new Posts();
+
+//        $model->name= 'Артем';
+//        $model->email = 'mail@mail.ru';
+//        $model->text = 'Text';
+//        $model->save();
+
         if ($model->load(Yii::$app->request->post()))
         {
 //            debug($model);
-            if ($model->validate())
+            if ($model->save())
             {
                 Yii::$app->session->setFlash('success','Данные приняты');
                 return $this->refresh();
