@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: genjo
- * Date: 20.07.17
- * Time: 17:32
+ * Date: 24.07.17
+ * Time: 10:43
  */
 
 namespace app\models;
@@ -15,4 +15,8 @@ class News
 extends ActiveRecord
 {
 
+    public static function tableName()
+    {
+        return 'news';
+    }
 }
