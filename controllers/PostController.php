@@ -30,8 +30,10 @@ extends AbstractController
     {
         $post = Posts::findOne(2);
 //        debug($post);
-        $post->email = '2@2mail.ru';
-        $post->save();
+//        $post->email = '2@2mail.ru';
+//        $post->save();
+
+        $post->delete();
         $model = new Posts();
 
 //        $model->name= 'Артем';
