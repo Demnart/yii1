@@ -33,7 +33,7 @@ extends AbstractController
 //        $post->email = '2@2mail.ru';
 //        $post->save();
 
-        $post->delete();
+//        $post->delete();
         $model = new Posts();
 
 //        $model->name= 'Артем';
@@ -80,12 +80,8 @@ extends AbstractController
 //        $item = News::findAll(['parent'=>1]);
 //        $querry = "SELECT * FROM news WHERE parent =:parent";
 //        $item = News::findBySql($querry,[':parent'=>1])->asArray()->one();
-//          $category = Category::find()->all();
+//        $category = Category::find()->all();
           $category = Category::find()->with('news')->all();
-
-
-
-
 
         return $this->render('test',compact('category'));
     }

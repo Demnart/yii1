@@ -1,4 +1,15 @@
-<h1>Test</h1>
+<?php
+use app\components\MyWidget;
+
+//echo MyWidget::widget(  );
+ MyWidget::begin();
+?>
+
+<h1>hello,world!</h1>
+<?php MyWidget::end() ?>
+
+
+
 <button class="btn btn-success" id="btn">Click me!</button>
 <br>
 <?php //$this->registerJsFile('@web/js/scripts.js',['depends'=>'yii\web\YiiAsset']);?>
@@ -13,20 +24,20 @@
 <?php $this->endBlock(); ?>
 
 <?php
-foreach ($category as $value)
-{
-   echo '<ul>';
-    echo '<li>' . $value->name .'</li>';
-    $news = $value->news;
-    foreach ($news as $value1)
-    {
-        echo '<ul>';
-            echo '<li>'. $value1->title .'</li>';
-        echo '</ul>';
-    }
-   echo '</ul>';
-}
-?>
+//foreach ($category as $value)
+//{
+//   echo '<ul>';
+//    echo '<li>' . $value->name .'</li>';
+//    $news = $value->news;
+//    foreach ($news as $value1)
+//    {
+//        echo '<ul>';
+//            echo '<li>'. $value1->title .'</li>';
+//        echo '</ul>';
+//    }
+//   echo '</ul>';
+//}
+//?>
 
 <?php
 
